@@ -2,8 +2,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import PostCard from './Postcard';
 import { firestore } from '@/lib/firebase';
+import PostCard from './PostCardTwo';
 import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
 
 interface Post {
