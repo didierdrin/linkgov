@@ -1,26 +1,8 @@
 @import "tailwindcss";
 
-/* @theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
-
 @layer base {
   body {
-    @apply bg-primary font-sans;
+    @apply bg-primary font-sans; /* Ensure this matches your Tailwind config */
   }
 }
 
