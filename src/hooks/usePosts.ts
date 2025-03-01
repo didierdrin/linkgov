@@ -141,14 +141,17 @@ export function usePosts(area?: string, limitCount: number = 10) {
     if (!user) return;
     
     try {
+      const post = posts.find(p => p.id === postId);
+      const newLikeCount = (post?.likeCount ?? 0) + 1;
+  
       await updateDoc(doc(firestore, 'posts', postId), {
-        likeCount: posts.find(p => p.id === postId)?.likeCount + 1 || 1
+        likeCount: newLikeCount
       });
       
       setPosts(prev => 
         prev.map(post => 
           post.id === postId 
-            ? { ...post, likeCount: post.likeCount + 1 } 
+            ? { ...post, likeCount: newLikeCount } 
             : post
         )
       );
@@ -156,19 +159,22 @@ export function usePosts(area?: string, limitCount: number = 10) {
       console.error("Error liking post:", err);
     }
   };
-
+  
   const dislikePost = async (postId: string) => {
     if (!user) return;
     
     try {
+      const post = posts.find(p => p.id === postId);
+      const newDislikeCount = (post?.dislikeCount ?? 0) + 1;
+  
       await updateDoc(doc(firestore, 'posts', postId), {
-        dislikeCount: posts.find(p => p.id === postId)?.dislikeCount + 1 || 1
+        dislikeCount: newDislikeCount
       });
       
       setPosts(prev => 
         prev.map(post => 
           post.id === postId 
-            ? { ...post, dislikeCount: post.dislikeCount + 1 } 
+            ? { ...post, dislikeCount: newDislikeCount } 
             : post
         )
       );
@@ -176,6 +182,7 @@ export function usePosts(area?: string, limitCount: number = 10) {
       console.error("Error disliking post:", err);
     }
   };
+  
 
   const deletePost = async (postId: string) => {
     if (!user) return false;
