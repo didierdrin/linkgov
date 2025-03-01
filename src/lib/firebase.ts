@@ -5,14 +5,14 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage"; 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCbk1GBanPmrEgqQh-QHzQyfEUqAbzfWN0",
-    authDomain: "assigurw.firebaseapp.com",
-    projectId: "assigurw",
-    storageBucket: "assigurw.appspot.com",
-    messagingSenderId: "265353996623",
-    appId: "1:265353996623:web:c11fd2eac0be18a867bd3a",
-    measurementId: "G-6PJZQ04QRC"
-};
+    apiKey: "AIzaSyDlfeVwzbjeM2oxK6XL2hmDAyB-y-FMNLM",
+    authDomain: "passtrack-3e434.firebaseapp.com",
+    projectId: "passtrack-3e434",
+    storageBucket: "passtrack-3e434.appspot.com",
+    messagingSenderId: "491220286264",
+    appId: "1:491220286264:web:eb0c1e8e7f994aa72e9fcd",
+    measurementId: "G-GY5N76LQCH"
+  };
   
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
