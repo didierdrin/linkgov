@@ -5,7 +5,7 @@ interface LocaleLayoutProps {
   params: { locale: string };
 }
 
-export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
+export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   return (
     <div className="min-h-screen">
       <header className="p-4 bg-gray-200">
