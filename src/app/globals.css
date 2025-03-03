@@ -5,6 +5,33 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-light: #4fd153;
+  --primary: #29c92b;
+  --primary-dark: #1f8764;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    /* Optionally adjust primary colors for dark mode if needed */
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,7 +46,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
-
+ */
 
 
 /* @import "tailwindcss/base";
