@@ -10,10 +10,10 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const areas = [
-    { id: 'area1', name: 'Area 1' },
-    { id: 'area2', name: 'Area 2' },
-    { id: 'area3', name: 'Area 3' },
-    { id: 'area4', name: 'Area 4' },
+    { id: 'area1', name: 'Gasabo' },
+    { id: 'area2', name: 'Nyarugenge' },
+    { id: 'area3', name: 'Kicukiro' },
+    { id: 'area4', name: 'Kamonyi' },
     { id: 'areas', name: 'All Areas' },
   ];
 
