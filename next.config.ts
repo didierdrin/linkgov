@@ -6,10 +6,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   reactStrictMode: true,  
-  i18n: {
-    locales: ['en', 'fr'],
-    defaultLocale: 'en',
-  }
+  
   
 };
 
