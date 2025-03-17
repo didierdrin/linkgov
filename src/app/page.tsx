@@ -37,6 +37,7 @@ export default function Home() {
       {/* Header */}
       <header className="flex justify-between items-center bg-green-500 text-white p-4">
         <div className="flex-1"></div>
+        <img src="/linkgov.png" alt="logo" className="w-10 h-10 mr-10" />
         <h1 className="flex-1 text-center text-2xl font-bold">Community Platform</h1>
         <nav className="flex flex-1 justify-end gap-4">
           <a href="/" className="hover:underline">Home</a>
