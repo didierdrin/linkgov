@@ -46,7 +46,7 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <div className="bg-white p-8 mt-5 rounded-lg shadow-lg w-full max-w-md mx-auto">
       <h2 className="text-2xl font-bold mb-6 text-primary-dark text-center">Sign Up</h2>
       
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -90,7 +90,7 @@ export default function SignupPage() {
         
         <button
           type="submit"
-          className="w-full py-2 px-4 bg-background text-white font-medium rounded-lg hover:bg-opacity-90 transition"
+          className="w-full py-2 px-4 bg-green-500 text-white font-medium rounded-lg hover:bg-opacity-90 transition"
         >
           Create Account
         </button>

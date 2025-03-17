@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <header className="bg-primary text-white">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <section className="text-center md:text-left mb-4 md:mb-0">
             <h1 className="text-3xl font-bold">WELCOME TO LINKGOV</h1>
