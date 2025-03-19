@@ -8,24 +8,24 @@ export default function CommentDashboard() {
   const recentComments = [
     { 
       id: 1, 
-      author: 'John Doe', 
-      avatar: '/api/placeholder/40/40',
+      author: 'John Karekezi', 
+      avatar: 'https://res.cloudinary.com/dezvucnpl/image/upload/v1742381846/istockphoto-1288129985-612x612_jvyx9t.jpg',
       preview: 'This is a great initiative! I think we should focus on implementing this in phases.',
       time: '5 min ago',
       likes: 8 
     },
     { 
       id: 2, 
-      author: 'Jane Smith', 
-      avatar: '/api/placeholder/40/40',
+      author: 'Jane Murerwa', 
+      avatar: 'https://res.cloudinary.com/dezvucnpl/image/upload/v1742381846/istockphoto-1288129985-612x612_jvyx9t.jpg',
       preview: 'I agree with the proposal, but we need to consider the environmental impact as well.',
       time: '10 min ago',
       likes: 5 
     },
     { 
       id: 3, 
-      author: 'Robert Johnson', 
-      avatar: '/api/placeholder/40/40',
+      author: 'Robert Muneza', 
+      avatar: 'https://res.cloudinary.com/dezvucnpl/image/upload/v1742381846/istockphoto-1288129985-612x612_jvyx9t.jpg',
       preview: 'Can we consider an alternative approach that would be more inclusive for elderly residents?',
       time: '15 min ago',
       likes: 12 

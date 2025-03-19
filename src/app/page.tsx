@@ -45,7 +45,6 @@ export default function Home() {
           <a href="/account" className="hover:underline">Account</a>
           <a href="/forum" className="hover:underline">Forum</a>
           <button onClick={handleAddPostClick} className="hover:underline">+ Post</button>
-          {/* <a href="#" className="hover:underline">+ Post</a> */}
         </nav>
       </header>
 
