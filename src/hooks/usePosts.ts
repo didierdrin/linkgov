@@ -29,12 +29,14 @@ interface Post {
   likeCount: number;
   dislikeCount: number;
   commentCount: number;
+  uid: string;
 }
 
 interface NewPost {
   title: string;
   content: string;
   area: string;
+  uid: string;
 }
 
 export function usePosts(area?: string, limitCount: number = 10) {
@@ -79,7 +81,8 @@ export function usePosts(area?: string, limitCount: number = 10) {
           createdAt: data.createdAt.toDate(),
           likeCount: data.likeCount || 0,
           dislikeCount: data.dislikeCount || 0,
-          commentCount: data.commentCount || 0
+          commentCount: data.commentCount || 0,
+          uid: data.uid || ''
         });
       });
 
@@ -125,7 +128,8 @@ export function usePosts(area?: string, limitCount: number = 10) {
         createdAt: new Date(),
         likeCount: 0,
         dislikeCount: 0,
-        commentCount: 0
+        commentCount: 0,
+        uid: user.uid
       };
 
       setPosts(prev => [createdPost, ...prev]);
