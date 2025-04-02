@@ -6,7 +6,7 @@ export default function AboutPage() {
         
         <section className="bg-white p-6 rounded-lg shadow mb-8 bg-red-300">
           <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
-          <p className="mb-4 text-green-200">
+          <p className="mb-4">
             A country is a vast entity, so large that the government cannot always be aware of everything 
             that is not working. Imagine a country where the government could see in real time the problems 
             encountered by citizens through their reports.
