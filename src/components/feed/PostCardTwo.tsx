@@ -94,9 +94,9 @@ export default function PostCard({ post }: PostCardProps) {
             </button>
           </div>
           
-          <Link href={`/post/${post.id}`} className="text-primary-dark hover:underline">
+          {/* <Link href={`/post/${post.id}`} className="text-primary-dark hover:underline">
             View Full Discussion
-          </Link>
+          </Link> */}
         </div>
       </div>
       

@@ -12,7 +12,14 @@ export default function Home() {
   const [selectedArea, setSelectedArea] = useState('areas');
   const [searchQuery, setSearchQuery] = useState('');
   const [isAddPostDialogOpen, setIsAddPostDialogOpen] = useState(false);
+  const [refreshPosts, setRefreshPosts] = useState(false);
+
   const router = useRouter();
+
+  const onPostAdded=() => {
+    setRefreshPosts((prev) => !prev); // Toggle state to trigger a refresh
+  };
+  
 
   const handleAddPostClick = () => {
     const user = auth.currentUser;
@@ -20,6 +27,7 @@ export default function Home() {
       router.push('/login');
     } else {
       setIsAddPostDialogOpen(true);
+      onPostAdded();
     }
   };
 
@@ -102,7 +110,7 @@ export default function Home() {
                   <span className="w-2 h-6 bg-green-600 rounded-full block"></span>
                   Community Feed
                 </h2>
-                <PostList area={selectedArea} searchQuery={searchQuery} />
+                <PostList refreshTrigger={refreshPosts} area={selectedArea} searchQuery={searchQuery} />
               </div>
             </div>
             

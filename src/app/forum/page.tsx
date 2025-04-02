@@ -100,6 +100,28 @@ export default function ForumPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
+      <div className="flex items-center mb-4 mt-4 ml-4 hover:text-green-500">
+        <button
+          onClick={() => router.back()}
+          className="flex items-center text-primary-dark hover:text-primary"
+        >
+          <svg
+            className="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15 19l-7-7 7-7"
+            ></path>
+          </svg>
+          Back
+        </button>
+      </div>
       {/* Header */}
       <header className="bg-green-500 text-white p-4">
         <h1 className="text-2xl font-bold text-center">Community Forum</h1>

@@ -1,10 +1,9 @@
-// src/components/feed/PostList.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
 import { firestore } from '@/lib/firebase';
 import PostCard from './PostCardTwo';
-import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
+import { collection, query, where, orderBy, onSnapshot } from 'firebase/firestore';
 
 interface Post {
   id: string;
@@ -22,67 +21,54 @@ interface Post {
 interface PostListProps {
   area: string;
   searchQuery: string;
+  refreshTrigger: boolean; // NEW PROP to force re-fetch
 }
 
-export default function PostList({ area, searchQuery }: PostListProps) {
+export default function PostList({ area, searchQuery, refreshTrigger }: PostListProps) {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchPosts() {
-      setLoading(true);
-      try {
-        let postsQuery = query(
-          collection(firestore, 'posts'),
-          orderBy('createdAt', 'desc')
-        );
+    setLoading(true);
+    let postsQuery = query(collection(firestore, 'posts'), orderBy('createdAt', 'desc'));
 
-        // Filter by area if not "all areas"
-        if (area !== 'areas') {
-          postsQuery = query(
-            collection(firestore, 'posts'),
-            where('area', '==', area),
-            orderBy('createdAt', 'desc')
-          );
-        }
-
-        const querySnapshot = await getDocs(postsQuery);
-        const fetchedPosts: Post[] = [];
-        
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          fetchedPosts.push({
-            id: doc.id,
-            title: data.title,
-            content: data.content,
-            authorId: data.authorId,
-            authorName: data.authorName,
-            area: data.area,
-            createdAt: data.createdAt.toDate(),
-            likeCount: data.likeCount,
-            dislikeCount: data.dislikeCount,
-            commentCount: data.commentCount
-          });
-        });
-
-        // Filter by search query if provided
-        const filteredPosts = searchQuery 
-          ? fetchedPosts.filter(post => 
-              post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-              post.content.toLowerCase().includes(searchQuery.toLowerCase())
-            )
-          : fetchedPosts;
-
-        setPosts(filteredPosts);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      } finally {
-        setLoading(false);
-      }
+    if (area !== 'areas') {
+      postsQuery = query(collection(firestore, 'posts'), where('area', '==', area), orderBy('createdAt', 'desc'));
     }
 
-    fetchPosts();
-  }, [area, searchQuery]);
+    // Use Firestore's real-time listener (onSnapshot)
+    const unsubscribe = onSnapshot(postsQuery, (querySnapshot) => {
+      const fetchedPosts: Post[] = [];
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        fetchedPosts.push({
+          id: doc.id,
+          title: data.title,
+          content: data.content,
+          authorId: data.authorId,
+          authorName: data.authorName,
+          area: data.area,
+          createdAt: data.createdAt?.toDate ? data.createdAt.toDate() : new Date(),
+          likeCount: data.likeCount || 0,
+          dislikeCount: data.dislikeCount || 0,
+          commentCount: data.commentCount || 0,
+        });
+      });
+
+      // Apply search filter
+      const filteredPosts = searchQuery
+        ? fetchedPosts.filter((post) =>
+            post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            post.content.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+        : fetchedPosts;
+
+      setPosts(filteredPosts);
+      setLoading(false);
+    });
+
+    return () => unsubscribe(); // Cleanup on unmount
+  }, [area, searchQuery, refreshTrigger]); // Re-fetch when refreshTrigger changes
 
   if (loading) {
     return <div className="text-center py-8">Loading posts...</div>;
@@ -94,7 +80,7 @@ export default function PostList({ area, searchQuery }: PostListProps) {
 
   return (
     <div className="space-y-6">
-      {posts.map(post => (
+      {posts.map((post) => (
         <PostCard key={post.id} post={post} />
       ))}
     </div>

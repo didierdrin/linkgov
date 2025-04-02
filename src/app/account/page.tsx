@@ -45,6 +45,28 @@ export default function AccountPage() {
 
   return (
     <div className="p-4">
+      <div className="flex items-center mb-4 hover:text-green-500">
+        <button
+          onClick={() => router.back()}
+          className="flex items-center text-primary-dark hover:text-primary"
+        >
+          <svg
+            className="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15 19l-7-7 7-7"
+            ></path>
+          </svg>
+          Back
+        </button>
+      </div>
       <h1 className="text-3xl font-bold mb-4">My Account</h1>
       <div className="mb-6">
         <p className="text-lg">Logged in as: {user!.email}</p>

@@ -1,7 +1,34 @@
 // src/app/about/page.tsx
+'use client'; 
+import { useRouter } from "next/navigation"; 
+
 export default function AboutPage() {
+
+  const router = useRouter(); 
     return (
       <div className="max-w-4xl mx-auto">
+        <div className="flex items-center mb-4 hover:text-green-500">
+        <button
+          onClick={() => router.back()}
+          className="flex items-center text-primary-dark hover:text-primary"
+        >
+          <svg
+            className="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15 19l-7-7 7-7"
+            ></path>
+          </svg>
+          Back
+        </button>
+      </div>
         <h1 className="text-3xl font-bold mb-6 text-primary-dark">About LinkGov</h1>
         
         <section className="bg-white p-6 rounded-lg shadow mb-8">
