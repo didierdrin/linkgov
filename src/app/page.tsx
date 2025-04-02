@@ -80,7 +80,7 @@ export default function Home() {
               </select>
             </div>
             
-            <div className="w-full md:w-auto">
+            {/* <div className="w-full md:w-auto">
               <label htmlFor="search" className="block mb-2 text-gray-700 font-medium">
                 <div className="flex items-center justify-center gap-1">
                   <Search size={16} />
@@ -98,7 +98,7 @@ export default function Home() {
                 />
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
               </div>
-            </div>
+            </div> */}
           </section>
 
           {/* Main content area */}
