@@ -4,7 +4,7 @@ export default function AboutPage() {
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-primary-dark">About LinkGov</h1>
         
-        <section className="bg-white p-6 rounded-lg shadow mb-8 bg-red-300">
+        <section className="bg-white p-6 rounded-lg shadow mb-8">
           <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
           <p className="mb-4">
             A country is a vast entity, so large that the government cannot always be aware of everything 
