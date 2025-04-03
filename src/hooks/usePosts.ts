@@ -30,6 +30,10 @@ interface Post {
   dislikeCount: number;
   commentCount: number;
   uid: string;
+  subtitle: string;
+  imgUrl: string;
+  description: string;
+  ministry: string;
 }
 
 interface NewPost {
@@ -37,6 +41,10 @@ interface NewPost {
   content: string;
   area: string;
   uid: string;
+  subtitle: string;
+  imgUrl: string;
+  description: string;
+  ministry: string
 }
 
 export function usePosts(area?: string, limitCount: number = 10) {
@@ -82,7 +90,11 @@ export function usePosts(area?: string, limitCount: number = 10) {
           likeCount: data.likeCount || 0,
           dislikeCount: data.dislikeCount || 0,
           commentCount: data.commentCount || 0,
-          uid: data.uid || ''
+          uid: data.uid || '',
+          subtitle: data.subtitle || '',
+          imgUrl: data.imgUrl || '',
+          description: data.description || '',
+          ministry: data.ministry || ''
         });
       });
 
@@ -129,7 +141,11 @@ export function usePosts(area?: string, limitCount: number = 10) {
         likeCount: 0,
         dislikeCount: 0,
         commentCount: 0,
-        uid: user.uid
+        uid: newPost.uid || '',
+        subtitle: newPost.subtitle || '',
+        imgUrl: newPost.imgUrl || '',
+        description: newPost.description || '',
+        ministry: newPost.ministry || ''
       };
 
       setPosts(prev => [createdPost, ...prev]);
