@@ -83,7 +83,7 @@ export default function PostCardTwo({ post, onLike, onDislike, onAddComment }: P
            
             <div className="relative h-24 w-24 rounded-md overflow-hidden">
   <img 
-    src={imageUrl} 
+    src= {imageUrl} 
     alt={post.title}
     className="object-cover w-full h-full"
     onError={(e) => {
