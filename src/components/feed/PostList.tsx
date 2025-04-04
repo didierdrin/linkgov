@@ -89,11 +89,6 @@ export default function PostList({ area, searchQuery, refreshTrigger }: PostList
   }
 
   return (
-    // <div className="space-y-6">
-    //   {posts.map((post) => (
-    //     <PostCard key={post.id} post={post} />
-    //   ))}
-    // </div>
     <div className="space-y-6">
         {posts.length === 0 ? (
           <div className="text-center py-12 text-gray-500">
