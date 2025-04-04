@@ -74,7 +74,7 @@ export default function AccountPage() {
       
       <div className="mb-8 p-6 bg-white rounded-lg shadow">
         <p className="text-lg mb-2">Logged in as: {user!.email}</p>
-        <p className="text-gray-600 mb-4">Display name: {user!.uid || 'Anonymous'}</p>
+        <p className="text-gray-600 mb-4">User ID: {user!.uid || 'Anonymous'}</p>
         <button 
           onClick={handleSignOut} 
           className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
