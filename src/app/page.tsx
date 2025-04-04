@@ -34,11 +34,12 @@ export default function Home() {
 
   const areas = [
     { id: 'areas', name: 'All Areas' },
-    { id: 'area1', name: 'Gasabo' },
-    { id: 'area2', name: 'Nyarugenge' },
-    { id: 'area3', name: 'Kicukiro' },
-    { id: 'area4', name: 'Kamonyi' },
+    { id: 'Gasabo', name: 'Gasabo' },
+    { id: 'Nyarugenge', name: 'Nyarugenge' },
+    { id: 'Kicukiro', name: 'Kicukiro' },
+    { id: 'Kamonyi', name: 'Kamonyi' },
   ];
+  
 
   return (
     <div className="flex flex-col min-h-screen bg-green-500">
@@ -47,7 +48,7 @@ export default function Home() {
         <div className="flex-1"></div>
         <img src="/linkgov.png" alt="logo" className="w-10 h-10 mr-10" />
         <h1 className="flex-1 text-center text-2xl font-bold">Community Platform</h1>
-        <nav className="flex flex-1 justify-end gap-4">
+        <nav className="flex flex-1 justify-end gap-4 mr-6">
           <a href="/" className="hover:underline">Home</a>
           <a href="/about" className="hover:underline">About</a>
           <a href="/account" className="hover:underline">Account</a>
@@ -80,25 +81,7 @@ export default function Home() {
               </select>
             </div>
             
-            {/* <div className="w-full md:w-auto">
-              <label htmlFor="search" className="block mb-2 text-gray-700 font-medium">
-                <div className="flex items-center justify-center gap-1">
-                  <Search size={16} />
-                  <span>Search posts</span>
-                </div>
-              </label>
-              <div className="relative">
-                <input
-                  type="text"
-                  id="search"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full md:w-64 p-3 pl-10 rounded-lg border border-gray-300 text-center focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all"
-                  placeholder="Type keywords..."
-                />
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-              </div>
-            </div> */}
+            
           </section>
 
           {/* Main content area */}
